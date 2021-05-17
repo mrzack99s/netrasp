@@ -1,4 +1,4 @@
-module github.com/networklore/netrasp
+module github.com/mrzack99s/netrasp
 
 go 1.13
 
