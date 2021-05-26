@@ -42,6 +42,12 @@ func initDevice(platform string, conn connection) (Platform, error) {
 		driver.Connection = conn
 
 		return driver, nil
+
+	case "sg3xx":
+		driver := &sg3xx{}
+		driver.Connection = conn
+
+		return driver, nil
 	case "sros":
 		driver := &sros{}
 		driver.Connection = conn
