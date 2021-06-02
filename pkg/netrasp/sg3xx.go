@@ -7,7 +7,7 @@ import (
 	"strings"
 )
 
-var writeSG350Prompt = regexp.MustCompile(`Overwrite file [startup-config].... (Y/N)[N]`)
+var writeSG350Prompt = regexp.MustCompile(`^[Oo]verwrite file`)
 
 // sg3xx is the Netrasp driver for Cisco IOS.
 type sg3xx struct {
