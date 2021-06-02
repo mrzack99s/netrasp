@@ -7,6 +7,8 @@ import (
 	"strings"
 )
 
+var writeSG350Prompt = regexp.MustCompile(`Overwrite file [startup-config].... (Y/N)[N]`)
+
 // sg3xx is the Netrasp driver for Cisco IOS.
 type sg3xx struct {
 	Connection connection
@@ -44,7 +46,7 @@ func (i sg3xx) Configure(ctx context.Context, commands []string) (ConfigResult, 
 
 // SaveConfig
 func (i sg3xx) SaveConfig(ctx context.Context) error {
-	_, err := i.RunUntil(ctx, "write", enablePrompt)
+	_, err := i.RunUntil(ctx, "write", writeSG350Prompt)
 	if err != nil {
 		return err
 	}
