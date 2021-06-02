@@ -48,11 +48,9 @@ func (i ios) Configure(ctx context.Context, commands []string) (ConfigResult, er
 // SaveConfig
 func (i ios) SaveConfig(ctx context.Context) error {
 	_, err := i.Run(ctx, "write")
-
 	if err != nil {
 		return err
 	}
-
 	return nil
 }
 

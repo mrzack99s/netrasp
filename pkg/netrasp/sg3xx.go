@@ -49,11 +49,9 @@ func (i sg3xx) SaveConfig(ctx context.Context) error {
 		return err
 	}
 	_, err = i.Run(ctx, "Y")
-
 	if err != nil {
 		return err
 	}
-
 	return nil
 }
 
