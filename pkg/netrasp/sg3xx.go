@@ -42,6 +42,21 @@ func (i sg3xx) Configure(ctx context.Context, commands []string) (ConfigResult, 
 	return result, nil
 }
 
+// SaveConfig
+func (i sg3xx) SaveConfig(ctx context.Context) error {
+	_, err := i.RunUntil(ctx, "write", enablePrompt)
+	if err != nil {
+		return err
+	}
+	_, err = i.Run(ctx, "Y")
+
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
+
 // Dial opens a connection to a device.
 func (i sg3xx) Dial(ctx context.Context) error {
 	commands := []string{"terminal width 511"}
